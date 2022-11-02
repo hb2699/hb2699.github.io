@@ -12,7 +12,7 @@ output:
     theme: sandstone
 ---
 
-#  using plotly create figure
+#  using plotly to create figure
 
 ```{r, message=FALSE, warning=FALSE, echo=FALSE}
 library(tidyverse)
@@ -42,7 +42,7 @@ instacart %>%
          yaxis = list(title = "Aisle"))
 ```
 
-# Chart B: Scatter Plot shows Top 50 product in Fresh Fruits Aisle
+# Chart B: Scatter Plot Of Top 50 products in Fresh Fruits Aisle
 
 ```{r}
 instacart %>% 
@@ -55,10 +55,10 @@ instacart %>%
     x = ~ n_order, y = ~product_name, color= ~n_order, type = "scatter", alpha = 0.5
   ) %>% 
     layout(xaxis = list(title = "Number of Orders"),
-         yaxis = list(title = "Top 50 product in fresh fruits aisle"))
+         yaxis = list(title = "Top 50 products in fresh fruits aisle"))
   
 ```
-# Chart C: Didstribution of order time in a day 
+# Chart C: Distribution of order time in a day 
 ```{r}
 instacart %>%
   drop_na() %>% 

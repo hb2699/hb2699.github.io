@@ -1,13 +1,22 @@
 ---
-title: "My awesome website"
+title: "Han Bao"
 output: 
   html_document:
     toc: true
     toc_float: true
     theme: cosmo
 ---
-
-# This is Han's website
+<style>
+    body {
+    background: url('images/background.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-size:12pt
+    }
+</style>
+# 2023 MPH of biostatistics in Mailman
 
 This is my cat!
 ![](images/ted.jpg)
