@@ -1,0 +1,75 @@
+---
+title: "Instacart Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    navbar:
+      - { icon: fa-home, href: index.html, align: right }
+      - { icon: fa-envelope, href: mailto:<hanbao191218@gmail.com>, align: right }
+      - { icon: fa-github, href: "http://github.com/hb2699/", align: right }
+    source: embed
+    theme: sandstone
+---
+
+#  using plotly create figure
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+```{r, echo=FALSE}
+data("instacart")
+instacart %>% 
+  as_tibble(instacart)
+```
+
+# Chart A: Bar Graph shows the number of items ordered in each aisle, limiting this to aisles with more than 10000 items ordered.
+
+```{r, warning=FALSE,message=FALSE}
+instacart %>%
+  group_by(aisle_id,aisle) %>% 
+  distinct() %>% 
+  summarize(n_order = n()) %>% 
+  arrange(desc(n_order)) %>% 
+  ungroup() %>% 
+  filter(n_order >10000) %>% 
+  plot_ly(x = ~n_order,y = ~aisle, color = ~aisle,
+         type = "bar") %>% 
+   layout(xaxis = list(title = "Number of Orders"),
+         yaxis = list(title = "Aisle"))
+```
+
+# Chart B: Scatter Plot shows Top 50 product in Fresh Fruits Aisle
+
+```{r}
+instacart %>% 
+  filter(aisle == c("fresh fruits")) %>%              
+  group_by(aisle, product_name) %>% 
+  summarize(n_order = n()) %>% 
+  arrange(desc(n_order)) %>% 
+  do(head(.,n =50)) %>% 
+  plot_ly(
+    x = ~ n_order, y = ~product_name, color= ~n_order, type = "scatter", alpha = 0.5
+  ) %>% 
+    layout(xaxis = list(title = "Number of Orders"),
+         yaxis = list(title = "Top 50 product in fresh fruits aisle"))
+  
+```
+
+# Chart C: Didstribution of order time in a day 
+```{r}
+instacart %>%
+  drop_na() %>% 
+  mutate(day = order_dow + 1,order_day_of_week = lubridate::wday(day, label = TRUE)) %>%
+  select(order_id, user_id, order_day_of_week, order_hour_of_day, days_since_prior_order, product_name, aisle, department) %>%
+  group_by(order_day_of_week, order_hour_of_day) %>%
+  summarize(n_order = n_distinct(order_id)) %>%
+  plot_ly(x = ~order_hour_of_day, y = ~n_order, type = "scatter", mode = "lines",
+          color = ~order_day_of_week, alpha = 0.5) %>%
+  layout(xaxis = list(title = "Time in a day", range = list(0,24), dtick = 3, 
+                      tickvals = c(0, 3, 6, 9, 12, 15, 18, 21, 24)),
+         yaxis = list(title = "Number of Orders"))
+```
