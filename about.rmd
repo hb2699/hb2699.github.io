@@ -1,0 +1,38 @@
+---
+title: "about"
+author: "Han Bao"
+date: "`r Sys.Date()`"
+output: html_document
+---
+EDUCATION
+MPH in Biostatistics, Columbia University May 2023(expected)
+Key courses: Applied regression, Statistical computing with SAS, Analysis of categorical data
+BS in Health & Exercise Science and BA in Computer Science, Wake Forest University May 2021
+Key courses: Data Structure & Algorithms, Artificial intelligence, Database Management, Data mining
+
+SKILLS
+* Programming: Python, SQL, R, Pyspark, SAS, Java, C++
+* Tools: NumPy, Pandas, Pytorch, matplotlib
+* Platforms: Databricks, Github
+* Language: English(Proficient), Mandarin(Native)
+
+INTERNSHIP EXPERIENCE
+CMMB May 2022 - Now
+Data Analyst – Quantitative analysis and visualization of results of survey data results
+* Completed the basic data visualization of the results of survey data with various charts using Excel and Python.
+* Used correlation heat map with SAS to explore the relationship between the results of the survey to explore any potential relation of organizations making choices.
+* Used K-means clustering with Python on Databricks to put organizations into groups in order for potential further cooperation between organizations.
+
+Shanghai Institution of Hypertension May 2019 - Aug.2019
+Lab Assistant – Quantitative analysis of over 100,000 Sca1+ progenitor cell using R
+* Used single cell transcriptomics and lineage tracing to reveal heterogeneity of over 100,000 Sca1+ progenitor cell resided in vascular wall.
+* Filtered the raw dataset with Seurat, selected cells with features more than 200 and normalized the data. Output a violin plot to visualize the number of feature and mitochondrial transcript percentage.
+* Analyze the filtered dataset with PCA and used the first 10 PC to cluster the cells into 15 groups. Visualized the result using TSNE and PCHeatmap.
+
+PROJECT EXPERIENCE
+Youtube Comments Data Analysis Jan. 2022
+Identify Youtube users who are cat/dog owners using comments over 5 million words
+* Used a dataset of user comments for Youtube videos related to animals or pets to identify cat or dog owners based on their comments. Found out the topics important to them, and then identified video creators with the most viewers that are cat or dog owners.
+* Cleaned the data by deleting all the rows containing null values and users who definitely own cats or dogs were labelled. Used "word2vec" package to turn the comments into vectors which were used as features.
+* Logistic regression, random forest and GDBT were used to build the model while logistic regression has the best performance with highest recall value.
+* Identified the most frequent words in their comments to predict the potential topics they are interested in and also found out video creators with most comments from pet owners. These video creators would be considered as potential people to collaborate with to promote our pet-related products.
