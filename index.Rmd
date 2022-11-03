@@ -18,8 +18,8 @@ output:
 </style>
 # 2023 MPH of biostatistics in Mailman
 
-This is my cat!
-![](images/ted.jpg)
-
-Here is a direct link to my academic and professional experience page.[about](about.html)<br />
+This is my cat!<br />
+![](images/ted.jpg)<br />
+Here is the link to my Linkedin Website [Linkedin](https://www.linkedin.com/in/han-bao-32a22416a/)<br />
+Here is a direct link to my academic and professional experience page.[About](about.html)<br />
 Here is a link to my dashboard project.[Dashboard](dashboard.html)
