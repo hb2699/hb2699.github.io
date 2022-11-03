@@ -21,4 +21,5 @@ output:
 This is my cat!
 ![](images/ted.jpg)
 
-Here is a direct link to my academic and professional experience page.[about](about.html)
+Here is a direct link to my academic and professional experience page.[about](about.html)<br />
+Here is a link to my dashboard project.[Dashboard](dashboard.html)
